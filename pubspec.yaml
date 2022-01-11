@@ -115,10 +115,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - file/qhc.APE
-    - file/wav.wav
-    - file/123.mp3
-    - file/456.flac
     - assets/guide.jpg
     - assets/no_music.jpg
 #     - images/a_dot_burr.jpeg
