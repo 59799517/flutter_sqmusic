@@ -80,8 +80,7 @@ class _KuwoSearchListPage extends State<KuwoSearchListPage> {
                     child: Container(
                       height: size!.height,
                       width: size!.width,
-                      color: Colors.amber,
-                      child: ListView.builder(
+                      child: musicList==null?Container():ListView.builder(
                         controller: _scrollController,
                           itemBuilder: (BuildContext context, int index) =>_buildListItem(context,index),
                               itemCount: musicList!.length,

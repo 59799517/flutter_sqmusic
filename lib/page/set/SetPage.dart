@@ -21,6 +21,7 @@ class SetPage extends StatefulWidget {
 
 class _SetPage extends State<SetPage> {
   List<String> dropdownlist = ['128MP3', '192MP3', '320MP3', '2000FLAC'];
+  // List<String> dropdownlist = ['128MP3', '192MP3', '320MP3'];
 
   //选择音质
   var dropdownindex = "".obs;
@@ -102,13 +103,19 @@ class _SetPage extends State<SetPage> {
                             value: dropdownindex.value,
                             onChanged: (newValue) {
                               dropdownindex.value = newValue.toString();
+                              songQuality(dropdownindex.value);
                               if(newValue.toString()==dropdownlist[3]){
+                                OtherUtils.showToast("flac播放存在一些问题谨慎使用");
                                 //强制检查是否开启缓存播放
-                                if(cache.value){
-                                  songQuality(dropdownindex.value);
-                                }else{
-                                  OtherUtils.showToast("请开始缓存播放后再选择flac格式");
-                                }
+                                // if(cache.value){
+
+                                  // if(dropdownindex.value==3){
+                                  //
+                                  // }
+
+                                // }else{
+                                //   OtherUtils.showToast("请开始缓存播放后再选择flac格式");
+                                // }
                               }else{
                                 songQuality(dropdownindex.value);
                               }

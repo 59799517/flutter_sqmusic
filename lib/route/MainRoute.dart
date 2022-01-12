@@ -17,10 +17,8 @@ import 'package:sqmusic/page/set/CheckToken.dart';
 class MainRoute {
   List<GetPage> routes = [
     new GetPage(name: '/', page: () => IndexPage()),
-    // new GetPage(name: '/', page: () => DefaultPage()),
     new GetPage(name: '/index', page: () => IndexPage()),
     new GetPage(name: '/home', page: () => HomePage()),
-    // // new GetPage(name: '/drive', page: () => DrivePage()),
     new GetPage(name: '/alidriveplaylist', page: () => AliDrivePlayListPage()),
     new GetPage(name: '/checktoken', page: () => CheckToken()),
     new GetPage(name: '/musicplay', page: () => PlayMusicPage()),

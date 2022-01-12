@@ -67,6 +67,8 @@ dependencies:
   flutter_slidable: ^1.2.0
 
 
+
+
   #  模糊
   blur: ^3.0.0
 
@@ -80,6 +82,8 @@ dependencies:
   fluttertoast: ^8.0.8
 #  可以用于下载等功能的显示
   modal_bottom_sheet: ^2.0.0
+  bubble_tab_indicator: ^0.1.6
+
 
 
 

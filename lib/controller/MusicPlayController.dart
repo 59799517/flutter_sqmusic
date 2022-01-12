@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:sqmusic/alidrive/AliClient.dart';
 import 'package:sqmusic/kuwo/kuwoDES.dart';
+import 'package:sqmusic/lyric/lyric_util.dart';
 import 'package:sqmusic/set/PlaySongSource.dart';
 import 'package:sqmusic/set/SetKey.dart';
 import 'package:sqmusic/utils/DBUtil.dart';
@@ -22,11 +23,10 @@ class MusicPlayController extends GetxController {
   //播放工具
   AssetsAudioPlayer? _assetsAudioPlayer=AssetsAudioPlayer.withId("sqmusic");
 
+  var playlyric=[].obs;
   // //播放列表
   static Playlist? audios =Playlist();
 
-  //当前播放状态
-  var isPlaying = false.obs;
 
   final DateFormat _dateFormat = DateFormat('mm:ss');
 
@@ -61,7 +61,7 @@ class MusicPlayController extends GetxController {
   }
 
   //添加音乐
-  Future<Audio?> newAddAudio({required dynamic songinfo,required String? playurl,required String? suffix , bool isdrive=false, dynamic driveinfo, required String songSource})async{
+  Future<Audio?> newAddAudio({required dynamic songinfo,required String? playurl,required String? suffix , bool isdrive=false, dynamic driveinfo, required String songSource,required dynamic data })async{
     //计算歌曲唯一性
     //无缓存则从网络播放
     Audio? audio;
@@ -71,13 +71,6 @@ class MusicPlayController extends GetxController {
           MusicAlbum: songinfo["album"],
           MusicArtists: songinfo["artist"],
           MusicSongSour: songSource);
-
-
-
-
-
-
-
 
     //判断是不是正在播放的歌曲
     if (assetsAudioPlayer!.current.hasValue) {
@@ -101,6 +94,7 @@ class MusicPlayController extends GetxController {
         }
       }
     }
+    LyricUtil.Lyrics[simpleMusicGenerateSha1] = data["data"]["lrclist"];
     //是新增加的歌曲则开始播放
     //查看是否有缓存
     var searcachfile;
@@ -431,7 +425,6 @@ class MusicPlayController extends GetxController {
   //暂停音乐
   bool? pauseAudio() {
     assetsAudioPlayer!.pause();
-    isPlaying.value = false;
   }
 
   //播放音乐
