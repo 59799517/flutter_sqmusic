@@ -82,6 +82,16 @@ class _CheckToken extends State<StatefulWidget>{
 
                           },text: "确定",),
                         Container(),
+
+                        GFButton(
+                          type: GFButtonType.outline,
+                          shape: GFButtonShape.pills,
+                          textStyle: TextStyle(color: Colors.black),
+                          onPressed: (){
+                            // chenkAliToken(res_token.value);
+                            Get.toNamed("/alilogin");
+                          },text: "账号登录",),
+                        Container(),
                         GFButton(
                           type: GFButtonType.outline,
                           shape: GFButtonShape.pills,

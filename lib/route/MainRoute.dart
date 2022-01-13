@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:sqmusic/page/HomePage.dart';
 import 'package:sqmusic/page/IndexPage.dart';
 import 'package:sqmusic/page/alidrive/AliDrivePlayListPage.dart';
+import 'package:sqmusic/page/alidrive/login/AliLogin.dart';
 import 'package:sqmusic/page/kuwo/KuwoBangListPage.dart';
 import 'package:sqmusic/page/kuwo/KuwoSearchListPage.dart';
 import 'package:sqmusic/page/kuwo/widget/top_list_container.dart';
@@ -25,6 +26,7 @@ class MainRoute {
     // new GetPage(name: '/checklogin', page: () => CheckLoginPage()),
     new GetPage(name: '/kuwosearchlist', page: () => KuwoSearchListPage()),
     new GetPage(name: '/kuwobanglist' ,page: () => KuwoBangListPage()),
+    new GetPage(name: '/alilogin' ,page: () => AliLogin()),
     // new GetPage(name: '/listdetailpage' ,page: () => ListDetailPage()),
     //
     // new GetPage(name: '/set', page: () => SetPage()),
